@@ -27,7 +27,7 @@ ApplicationWindow {
                     Label {
                         font.family: FA.family
                         font.pointSize: 25
-                        text: FA.flag
+                        text: FA.linux_rocks
                         anchors.rightMargin: 10
                     }
                     TextField {

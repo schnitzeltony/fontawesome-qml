@@ -4,26 +4,20 @@
 
 FontAwesomeQml* FontAwesomeQml::theInstance = nullptr;
 
-int FontAwesomeQml::registerQml(bool faBrands, bool faRegular, bool faSolid)
+int FontAwesomeQml::registerQml()
 {
     // Fonts must be loaded before QML is running
-    getInstance(faBrands, faRegular, faSolid);
+    getInstance();
     return qmlRegisterSingletonType<FontAwesomeQml>("FontAwesomeQml", 1, 0, "FA", FontAwesomeQml::getQMLInstance);
 }
 
-FontAwesomeQml *FontAwesomeQml::getInstance(bool faBrands, bool faRegular, bool faSolid)
+FontAwesomeQml *FontAwesomeQml::getInstance()
 {
     if(!theInstance) {
         theInstance = new FontAwesomeQml();
-        if(faBrands) {
-            Q_ASSERT(QFontDatabase::addApplicationFont(QStringLiteral(":/Font-Awesome/webfonts/fa-brands-400.ttf")) != -1);
-        }
-        if(faRegular) {
-            Q_ASSERT(QFontDatabase::addApplicationFont(QStringLiteral(":/Font-Awesome/webfonts/fa-regular-400.ttf")) != -1);
-        }
-        if(faSolid) {
-            Q_ASSERT(QFontDatabase::addApplicationFont(QStringLiteral(":/Font-Awesome/webfonts/fa-solid-900.ttf")) != -1);
-        }
+        Q_ASSERT(QFontDatabase::addApplicationFont(QStringLiteral(":/Font-Awesome/webfonts/fa-brands-400.ttf")) != -1);
+        Q_ASSERT(QFontDatabase::addApplicationFont(QStringLiteral(":/Font-Awesome/webfonts/fa-regular-400.ttf")) != -1);
+        Q_ASSERT(QFontDatabase::addApplicationFont(QStringLiteral(":/Font-Awesome/webfonts/fa-solid-900.ttf")) != -1);
     }
     return theInstance;
 }
