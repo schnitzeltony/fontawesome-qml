@@ -4,7 +4,7 @@ import sys
 import os
 import glob
 import re
-
+import shutil
 
 # This is a helper script to be run once awesome-fonts are upgraded.
 # It updates cpp source code:
@@ -22,9 +22,9 @@ global_header = os.path.join(project_path, 'include/fontawesome-qml.h')
 
 
 # upgrade submodule for Fort-Awesome
-#print("Try FortAwesome upgrade git submodule...")
-#if os.system('git submodule update --remote ' + awesome_path_rel):
-#	raise Exception('Something went wrong upgrading FortAwesome submodule!')
+print("Try FortAwesome upgrade git submodule...")
+if os.system('git submodule update --remote ' + awesome_path_rel):
+	raise Exception('Something went wrong upgrading FortAwesome submodule!')
 
 
 # list of glyph tupels: (<filename>, <glyphname>, <glyphval>)
@@ -64,7 +64,7 @@ for svg in svg_files:
                 t = (svg, glyph_name, code)
                 glyphs.append(t)
 
-# recreate our header
+# recreate our header in a tmp file
 global_header_tmp = global_header + '_'
 in_auto=False
 tmpfile = open(global_header_tmp, 'w')
@@ -87,77 +87,8 @@ for line in open(global_header):
                 tmpfile.write('    QString ' + name + '() const { return QString::fromUtf8("\\u' + val +'"); }\n')
     else:
         tmpfile.write(line)
-tmpfile.close    
+tmpfile.close()
 
-
-
-exit()
-
-
-
-
-
-
-js_path = project_path + 'fa-js-wrapper/'
-
-# create_js_wrapper() is our magic worker
-def create_js_wrapper(svg_full_path):
-    js_wrapper_base_name = os.path.basename(svg_full_path).replace('.svg', '').replace('-', '_')
-    js_wrapper_file = js_path + os.path.basename(svg_full_path).replace('.svg', '.js')
-    print('Create wrapper "' + js_wrapper_file + '...')
-    f = open(js_wrapper_file, 'w')
-    # header
-    f.write('.pragma library\n\n')
-    # helper
-    f.write('// helper for easy coloring\n')
-    f.write('function icon(symbol, color) {\n')
-    f.write('    var colorStart=""\n')
-    f.write('    var colorEnd=""\n')
-    f.write('    if(color !== null) {\n')
-    f.write('        colorStart="<font color=\'"+color+"\'>"\n')
-    f.write('        colorEnd="</font>"\n')
-    f.write('    }\n')
-    f.write('    return colorStart+symbol+colorEnd\n')
-    f.write('}')
-    f.write('\n\n')
-
-    # alias variables
-    for line in open(svg_full_path):
-        if "glyph-name=" in line and "unicode=" in line:
-            line = line.replace('<glyph', '')
-            line = line.replace(' ', '')
-            glyph_name = ''
-            unicode = ''
-            next_is_glyph_name = False
-            next_is_unicode = False
-            for entry in line.split('"'):
-                if next_is_glyph_name:
-                    glyph_name = entry.replace('-', '_')
-                    next_is_glyph_name = False
-                if next_is_unicode:
-                    unicode = entry.replace(';', '').replace('&', '').replace('#', '').replace('x', '')
-                    next_is_unicode = False
-                if 'glyph-name=' in entry:
-                    next_is_glyph_name = True
-                if 'unicode=' in entry:
-                    next_is_unicode = True
-            if unicode != '' and glyph_name != '':
-                glyph_name_len = len(glyph_name)
-                spacer = ''
-                spacelen = 40
-                if glyph_name_len < spacelen:
-                    spacer = ' ' * int(spacelen - glyph_name_len)
-                f.write('var ' + js_wrapper_base_name + '_' + glyph_name + spacer + '= "\\u' + unicode + '"\n')
-    f.close()
-
-# create js-wrapper path
-if not os.path.exists(js_path):
-   os.mkdir(js_path)
-   print('"' + js_path + '" created.')
-
-
-
-# parse svgs and create our wrappers
-for svg in glob.glob(svg_path + '*.svg'):
-    create_js_wrapper(svg)
-
+# copy & cleanup
+shutil.copyfile(global_header_tmp, global_header)
+os.remove(global_header_tmp) 
