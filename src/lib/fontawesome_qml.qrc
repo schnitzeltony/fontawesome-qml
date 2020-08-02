@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Font-Awesome/webfonts/fa-brands-400.ttf</file>
+        <file>Font-Awesome/webfonts/fa-regular-400.ttf</file>
+        <file>Font-Awesome/webfonts/fa-solid-900.ttf</file>
+    </qresource>
+</RCC>
