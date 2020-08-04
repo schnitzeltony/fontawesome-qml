@@ -1,40 +1,23 @@
 #include <fontawesome-qml.h>
 #include <QQmlEngine>
-#include <QFontDatabase>
 
-FontAwesomeQml* FontAwesomeQml::theInstance = nullptr;
+bool FontAwesomeQml::faWasRegistered = false;
+bool FontAwesomeQml::faModelWasRegistered = false;
 
-int FontAwesomeQml::registerQml()
+void FontAwesomeQml::registerFAQml()
 {
-    // Fonts must be loaded before QML is running
-    getInstance();
-    return qmlRegisterSingletonType<FontAwesomeQml>("FontAwesomeQml", 1, 0, "FA", FontAwesomeQml::getQMLInstance);
-}
-
-FontAwesomeQml *FontAwesomeQml::getInstance()
-{
-    if(!theInstance) {
-        theInstance = new FontAwesomeQml();
-        Q_ASSERT(QFontDatabase::addApplicationFont(QStringLiteral(":/Font-Awesome/webfonts/fa-brands-400.ttf")) != -1);
-        Q_ASSERT(QFontDatabase::addApplicationFont(QStringLiteral(":/Font-Awesome/webfonts/fa-regular-400.ttf")) != -1);
-        Q_ASSERT(QFontDatabase::addApplicationFont(QStringLiteral(":/Font-Awesome/webfonts/fa-solid-900.ttf")) != -1);
+    // Avoid multiple registration
+    if(!faWasRegistered) {
+        qmlRegisterSingletonType(QUrl("qrc:/qml/Fontawesome.qml"), "FontAwesomeQml", 1, 0, "FAQ");
+        faWasRegistered = true;
     }
-    return theInstance;
 }
 
-QObject *FontAwesomeQml::getQMLInstance(QQmlEngine *t_engine, QJSEngine *t_scriptEngine)
+void FontAwesomeQml::registerFAModelQml()
 {
-    Q_UNUSED(t_engine)
-    Q_UNUSED(t_scriptEngine)
-    return getInstance();
-}
-
-FontAwesomeQml::FontAwesomeQml(QObject *parent) : QObject(parent)
-{
-}
-
-QString FontAwesomeQml::icon(const QString &symbol, QColor color) const
-{
-    // TODO
-
+    // Avoid multiple registration
+    if(!faModelWasRegistered) {
+        qmlRegisterSingletonType(QUrl("qrc:/qml/FontawesomeModel.qml"), "FontAwesomeModelQml", 1, 0, "FAMQ");
+        faModelWasRegistered = true;
+    }
 }
