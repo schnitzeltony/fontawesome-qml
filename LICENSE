@@ -1,0 +1,11 @@
+Code withisn this library is GPLv3 - see GPLv3.txt.
+
+Font Awesome Free fonts used in this project are licensed under
+# Fonts: SIL OFL 1.1 License (https://scripts.sil.org/OFL)
+In the Font Awesome Free download, the SIL OFL license applies to all icons
+packaged as web and desktop font files.
+
+For more details check:
+* src/lib/Font-Awesome/LICENSE.txt in this repo
+* https://github.com/FortAwesome/Font-Awesome - the original repo
+* https://fontawesome.com/license/free
