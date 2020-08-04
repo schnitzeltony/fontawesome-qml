@@ -26,8 +26,9 @@ ApplicationWindow {
                     height: 40
                     Label {
                         font.family: FA.family
+                        font.styleName: "Solid"
                         font.pointSize: 25
-                        text: FA.linux_rocks
+                        text: FA.file
                         anchors.rightMargin: 10
                     }
                     TextField {
