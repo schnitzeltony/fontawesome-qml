@@ -24,14 +24,14 @@ ApplicationWindow {
                 spacing: 20
                 height: 40
                 Label {
-                    width: 60
+                    width: 40
                     font.family: FAQ.family
                     font.pointSize: 25
                     font.styleName: model.style
                     text: model.glyph
                 }
                 TextField {
-                    width: 300
+                    width: 350
                     selectByMouse: true
                     text: model.name
                     onFocusChanged:{
@@ -40,6 +40,7 @@ ApplicationWindow {
                     }
                 }
                 TextField {
+                    width: 60
                     selectByMouse: true
                     text: model.unicode
                     onFocusChanged:{
