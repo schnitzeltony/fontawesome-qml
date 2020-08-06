@@ -5,5 +5,6 @@
         <file>Font-Awesome/webfonts/fa-solid-900.ttf</file>
         <file>qml/Fontawesome.qml</file>
         <file>qml/FontawesomeModel.qml</file>
+        <file>js/fa-helper.js</file>
     </qresource>
 </RCC>
