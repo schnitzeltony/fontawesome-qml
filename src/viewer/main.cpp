@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+    FontAwesomeQml::registerFonts();
     FontAwesomeQml::registerFAQml();
     FontAwesomeQml::registerFAModelQml();
 

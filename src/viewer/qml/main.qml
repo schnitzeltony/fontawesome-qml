@@ -3,7 +3,6 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import FontAwesomeQml 1.0
 import FontAwesomeModelQml 1.0
-import "qrc:/qml"
 
 ApplicationWindow {
     visible: true
@@ -12,12 +11,14 @@ ApplicationWindow {
     title: "Font-Awesome viewer"
     Material.accent: Material.color(Material.Green)
 
+    // Swiping tab contents is so cool
     SwipeView {
         id: swipeView
         width: parent.width
         anchors.top: parent.top
         anchors.bottom: tabBar.top
         currentIndex: tabBar.currentIndex
+        // Font row component
         Component {
             id: listDelegate
             Row {
@@ -25,7 +26,7 @@ ApplicationWindow {
                 height: 40
                 Label {
                     width: 40
-                    font.family: FAQ.family
+                    font.family: FAQ.fontFamily
                     font.pointSize: 25
                     font.styleName: model.style
                     text: model.glyph
@@ -50,7 +51,7 @@ ApplicationWindow {
                 }
             }
         }
-
+        // faRegular tab-content
         ScrollView {
             id: viewRegular
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
@@ -59,6 +60,7 @@ ApplicationWindow {
                 delegate: listDelegate
             }
         }
+        // faSolid tab-content
         ScrollView {
             id: viewSolid
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
@@ -67,6 +69,7 @@ ApplicationWindow {
                 delegate: listDelegate
             }
         }
+        // faBrands tab-content
         ScrollView {
             id: viewBrands
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
