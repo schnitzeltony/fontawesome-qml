@@ -59,6 +59,46 @@ for svg in svg_files:
     in_file.close()
 
 
+# read fa.js and write updated version to fa.js_
+js_file = os.path.join(project_path, 'src/lib/js/fa.js')
+js_file_tmp = js_file + '_'
+in_file = open(js_file, 'r')
+out_file = open(js_file_tmp, 'w')
+
+in_auto=False
+glyph_names_added=[]
+fa_var_prefix = 'fa_'
+print('Upgrading %s...' % js_file, end='')
+for line in in_file.readlines():
+    if '// START AUTO-GENERATED' in line:
+        in_auto=True
+        out_file.write(line)
+        for g in glyphs:
+            name = g[0]
+            val = g[1]
+            # avoid double entries
+            if not name in glyph_names_added:
+                glyph_names_added.append(name)
+                name_len = len(name)
+                spacer = ''
+                spacelen = 40
+                if name_len < spacelen:
+                    spacer = ' ' * int(spacelen - name_len)
+                out_file.write('const ' + fa_var_prefix + name + spacer + '= "\\u' + val + '"\n')
+    if '// END AUTO-GENERATED' in line:
+        in_auto=False
+    if not in_auto:
+        out_file.write(line)
+
+in_file.close()
+out_file.close()
+
+# copy / remove fa.js_
+shutil.copyfile(js_file_tmp, js_file)
+os.remove(js_file_tmp)
+print(' done')
+
+
 # read Fontawesome.qml and write updated version to Fontawesome.qml_
 qml_file = os.path.join(project_path, 'src/lib/qml/Fontawesome.qml')
 qml_file_tmp = qml_file + '_'
