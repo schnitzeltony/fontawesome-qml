@@ -19,7 +19,7 @@ project_path = os.path.realpath(sys.path[0] + '/..')
 awesome_path_rel = 'src/lib/Font-Awesome'
 awesome_path = os.path.join(project_path, awesome_path_rel)
 svg_path = os.path.join(awesome_path, 'webfonts')
-
+fa_var_prefix = "fa_"
 
 # upgrade submodule for Fort-Awesome
 print("Try FortAwesome upgrade git submodule...")
@@ -78,7 +78,7 @@ for line in in_file.readlines():
             # avoid double entries
             if not name in glyph_names_added:
                 glyph_names_added.append(name)
-                out_file.write('    readonly property string g_' + name + ': "\\u' + val +'"\n')
+                out_file.write('    readonly property string ' + fa_var_prefix + name + ': "\\u' + val +'"\n')
     if '// END AUTO-GENERATED' in line:
         in_auto=False
     if not in_auto:
@@ -114,7 +114,7 @@ for line in in_file.readlines():
                 name = g[0]
                 val = g[1]
                 glyph_names_added.append(name)
-                out_file.write('        ListElement { name: "g_' + name + '"; glyph: "\\u' + val +'"; unicode: "\\\\u' + val +'"; style: "Regular" }\n')
+                out_file.write('        ListElement { name: "' + fa_var_prefix + name + '"; glyph: "\\u' + val +'"; unicode: "\\\\u' + val +'"; style: "Regular" }\n')
     if '// END AUTO-GENERATED REGULAR' in line:
         in_auto_regular=False
         
@@ -128,7 +128,7 @@ for line in in_file.readlines():
                 name = g[0]
                 val = g[1]
                 glyph_names_added.append(name)
-                out_file.write('        ListElement { name: "g_' + name + '"; glyph: "\\u' + val +'"; unicode: "\\\\u' + val +'"; style: "Solid" }\n')
+                out_file.write('        ListElement { name: "' + fa_var_prefix + name + '"; glyph: "\\u' + val +'"; unicode: "\\\\u' + val +'"; style: "Solid" }\n')
     if '// END AUTO-GENERATED SOLID' in line:
         in_auto_solid=False
         
@@ -142,7 +142,7 @@ for line in in_file.readlines():
                 name = g[0]
                 val = g[1]
                 glyph_names_added.append(name)
-                out_file.write('        ListElement { name: "g_' + name + '"; glyph: "\\u' + val +'"; unicode: "\\\\u' + val +'"; style: "Regular" }\n')
+                out_file.write('        ListElement { name: "' + fa_var_prefix + name + '"; glyph: "\\u' + val +'"; unicode: "\\\\u' + val +'"; style: "Regular" }\n')
     if '// END AUTO-GENERATED BRANDS' in line:
         in_auto_brands=False
         
