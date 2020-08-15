@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 import FontAwesomeQml 1.0
 ...
     Button {
-        font.family: FAQ.faFontFamily
+        font.family: FAQ.fontFamily
         font.styleName: "Solid" // or "Regular" requires registerFonts(true, ..) - see main.cpp above
         text: FAQ.fa_file
     }
