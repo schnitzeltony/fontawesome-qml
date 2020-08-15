@@ -14,7 +14,7 @@ To make things more simple this project contains:
 * a [wrapper library](src/lib/qml/Fontawesome.qml) that translates symbolic variable names to unicode and adds a tiny
   helper function to colorize glyphs
 * A [viewer-application](src/viewer/qml/main.qml)
-  ![Screenshot_2020-08-09_16-15-42](https://user-images.githubusercontent.com/2571823/89734351-df36a180-da5b-11ea-8008-27e151a838d9.png)
+  ![Screenshot_2020-08-15_21-02-51](https://user-images.githubusercontent.com/2571823/90319784-9723ed00-df3b-11ea-915e-86c3b9b57e63.png)
   to search for glyphs and directly copy symbol name into QML-source code.
 * A [python-script](maintenance/font-awsome-code-generator.py) to auto-upgrade symbol-list/model to latest
   Font-Awesome.
