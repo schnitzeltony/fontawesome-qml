@@ -10,11 +10,15 @@ ApplicationWindow {
     height: 600
     title: "Font-Awesome viewer"
 
+    property bool darkTheme: true
+    Material.theme: darkTheme ? Material.Dark : Material.Light
+
     header: ToolBar {
         id: toolbar
         RowLayout {
             anchors.fill: parent
             Label {
+                id: searchLabel
                 Layout.leftMargin: 8
                 text: qsTr("Search:")
             }
@@ -23,9 +27,18 @@ ApplicationWindow {
                 Layout.leftMargin: 8
                 Layout.minimumWidth: 200
                 Layout.bottomMargin: -8
-                Material.accent: "white"
+                Material.accent: searchLabel.color
+                selectionColor: Material.buttonColor
             }
             Item { Layout.fillWidth: true }
+            Label {
+                text: qsTr("Theme:")
+            }
+            Button {
+                Layout.rightMargin: 8
+                text: darkTheme ? qsTr("Dark") : qsTr("Light")
+                onClicked: { darkTheme = !darkTheme }
+            }
         }
     }
     // Swiping tab contents is so cool
