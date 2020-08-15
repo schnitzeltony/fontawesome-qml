@@ -12,7 +12,12 @@ import bisect
 brand_svg = 'fa-brands-400.svg'
 regular_svg = 'fa-regular-400.svg'
 solid_svg = 'fa-solid-900.svg'
-svg_files = { brand_svg, regular_svg, solid_svg }
+# helper dictionary conatining tuoels(<ttfName>, <fontFamily>)
+svg_files = {
+    brand_svg:   ( "ttfBrand",   "Regular" ),
+    regular_svg: ( "ttfRegular", "Regular" ),
+    solid_svg:   ( "ttfSolid",   "Solid"   )
+}
 
 # some worker paths
 project_path = os.path.realpath(sys.path[0] + '/..')
@@ -32,7 +37,7 @@ if os.system('git submodule update --remote ' + awesome_path_rel):
 glyphs=[]
 for svg in svg_files:
     svg_file = os.path.join(svg_path, svg)
-    print('Parsing %s...' % svg_file) 
+    print('Parsing %s...' % svg_file)
     in_file = open(svg_file, 'r')
     for line in in_file.readlines():
         if "glyph-name=" in line and "unicode=" in line:
@@ -57,7 +62,6 @@ for svg in svg_files:
                 t = (glyph_name, code, svg)
                 bisect.insort(glyphs, t)
     in_file.close()
-
 
 # read fa.js and write updated version to fa.js_
 js_file = os.path.join(project_path, 'src/lib/js/fa.js')
@@ -139,54 +143,23 @@ qml_file_tmp = qml_file + '_'
 in_file = open(qml_file, 'r')
 out_file = open(qml_file_tmp, 'w')
 
-in_auto_regular=False
-in_auto_solid=False
-in_auto_brands=False
+in_auto=False
 print('Upgrading %s...' % qml_file, end='')
 for line in in_file.readlines():
-    # regular model
-    if '// START AUTO-GENERATED REGULAR' in line:
-        in_auto_regular=True
+    if '// START AUTO-GENERATED' in line:
+        in_auto=True
         out_file.write(line)
         for g in glyphs:
-            svg_file = g[2]
-            if regular_svg == svg_file:
-                name = g[0]
-                val = g[1]
-                glyph_names_added.append(name)
-                out_file.write('        ListElement { name: "' + fa_var_prefix + name + '"; glyph: "\\u' + val +'"; unicode: "\\\\u' + val +'"; style: "Regular" }\n')
-    if '// END AUTO-GENERATED REGULAR' in line:
-        in_auto_regular=False
-        
-    # solid model
-    if '// START AUTO-GENERATED SOLID' in line:
-        in_auto_solid=True
-        out_file.write(line)
-        for g in glyphs:
-            svg_file = g[2]
-            if solid_svg == svg_file:
-                name = g[0]
-                val = g[1]
-                glyph_names_added.append(name)
-                out_file.write('        ListElement { name: "' + fa_var_prefix + name + '"; glyph: "\\u' + val +'"; unicode: "\\\\u' + val +'"; style: "Solid" }\n')
-    if '// END AUTO-GENERATED SOLID' in line:
-        in_auto_solid=False
-        
-    # brands model
-    if '// START AUTO-GENERATED BRANDS' in line:
-        in_auto_brands=True
-        out_file.write(line)
-        for g in glyphs:
-            svg_file = g[2]
-            if brand_svg == svg_file:
-                name = g[0]
-                val = g[1]
-                glyph_names_added.append(name)
-                out_file.write('        ListElement { name: "' + fa_var_prefix + name + '"; glyph: "\\u' + val +'"; unicode: "\\\\u' + val +'"; style: "Regular" }\n')
-    if '// END AUTO-GENERATED BRANDS' in line:
-        in_auto_brands=False
-        
-    if not in_auto_regular and not in_auto_solid and not in_auto_brands:
+            name = g[0]
+            val = g[1]
+            svg = g[2]
+            ttfName = svg_files[svg][0]
+            styleName = svg_files[svg][1]
+            out_file.write('        ListElement { name: "' + fa_var_prefix + name + '"; glyph: "\\u' + val +'"; unicode: "\\\\u' + val +'"; style: "' + styleName + '"; ttf: "' + ttfName + '" }\n')
+    if '// END AUTO-GENERATED' in line:
+        in_auto=False
+
+    if not in_auto:
         out_file.write(line)
 
 in_file.close()

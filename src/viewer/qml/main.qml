@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import FontAwesomeQml 1.0
 import FontAwesomeModelQml 1.0
+import SortFilterProxyModel 0.2
 
 ApplicationWindow {
     visible: true
@@ -56,7 +57,14 @@ ApplicationWindow {
             id: viewRegular
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ListView {
-                model: FAMQ.modelRegular
+                model: SortFilterProxyModel {
+                    sourceModel: FAMQ.faModel
+                    filters: ValueFilter {
+                        roleName: "ttf"
+                        value: "ttfRegular"
+                        enabled: true
+                    }
+                }
                 delegate: listDelegate
             }
         }
@@ -65,7 +73,14 @@ ApplicationWindow {
             id: viewSolid
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ListView {
-                model: FAMQ.modelSolid
+                model: SortFilterProxyModel {
+                    sourceModel: FAMQ.faModel
+                    filters: ValueFilter {
+                        roleName: "ttf"
+                        value: "ttfSolid"
+                        enabled: true
+                    }
+                }
                 delegate: listDelegate
             }
         }
@@ -74,7 +89,14 @@ ApplicationWindow {
             id: viewBrands
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ListView {
-                model: FAMQ.modelBrands
+                model: SortFilterProxyModel {
+                    sourceModel: FAMQ.faModel
+                    filters: ValueFilter {
+                        roleName: "ttf"
+                        value: "ttfBrand"
+                        enabled: true
+                    }
+                }
                 delegate: listDelegate
             }
         }
