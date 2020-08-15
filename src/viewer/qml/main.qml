@@ -3,8 +3,6 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.12
 import FontAwesomeQml 1.0
-import FontAwesomeModelQml 1.0
-import SortFilterProxyModel 0.2
 
 ApplicationWindow {
     visible: true
@@ -76,19 +74,9 @@ ApplicationWindow {
             id: viewRegular
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ListView {
-                model: SortFilterProxyModel {
-                    sourceModel: FAMQ.faModel
-                    filters: [
-                        ValueFilter {
-                            roleName: "ttf"
-                            value: "ttfRegular"
-                        },
-                        RegExpFilter {
-                            roleName: "name"
-                            pattern: "^fa_.*" + searchField.text
-                            caseSensitivity: Qt.CaseInsensitive
-                        }
-                    ]
+                model: FaFilter {
+                    ttyName: "ttfRegular"
+                    searchStr: searchField.text
                 }
                 delegate: listDelegate
             }
@@ -98,19 +86,9 @@ ApplicationWindow {
             id: viewSolid
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ListView {
-                model: SortFilterProxyModel {
-                    sourceModel: FAMQ.faModel
-                    filters: [
-                        ValueFilter {
-                            roleName: "ttf"
-                            value: "ttfSolid"
-                        },
-                        RegExpFilter {
-                            roleName: "name"
-                            pattern: "^fa_.*" + searchField.text
-                            caseSensitivity: Qt.CaseInsensitive
-                        }
-                    ]
+                model: FaFilter {
+                    ttyName: "ttfSolid"
+                    searchStr: searchField.text
                 }
                 delegate: listDelegate
             }
@@ -120,19 +98,9 @@ ApplicationWindow {
             id: viewBrands
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ListView {
-                model: SortFilterProxyModel {
-                    sourceModel: FAMQ.faModel
-                    filters: [
-                        ValueFilter {
-                            roleName: "ttf"
-                            value: "ttfBrand"
-                        },
-                        RegExpFilter {
-                            roleName: "name"
-                            pattern: "^fa_.*" + searchField.text
-                            caseSensitivity: Qt.CaseInsensitive
-                        }
-                    ]
+                model: FaFilter {
+                    ttyName: "ttfBrand"
+                    searchStr: searchField.text
                 }
                 delegate: listDelegate
             }
