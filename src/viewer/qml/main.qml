@@ -80,12 +80,12 @@ ApplicationWindow {
                     sourceModel: FAMQ.faModel
                     filters: [
                         ValueFilter {
-                           roleName: "ttf"
+                            roleName: "ttf"
                             value: "ttfRegular"
                         },
                         RegExpFilter {
                             roleName: "name"
-                            pattern: searchField.text
+                            pattern: "^fa_.*" + searchField.text
                             caseSensitivity: Qt.CaseInsensitive
                         }
                     ]
@@ -107,7 +107,7 @@ ApplicationWindow {
                         },
                         RegExpFilter {
                             roleName: "name"
-                            pattern: searchField.text
+                            pattern: "^fa_.*" + searchField.text
                             caseSensitivity: Qt.CaseInsensitive
                         }
                     ]
@@ -129,7 +129,7 @@ ApplicationWindow {
                         },
                         RegExpFilter {
                             roleName: "name"
-                            pattern: searchField.text
+                            pattern: "^fa_.*" + searchField.text
                             caseSensitivity: Qt.CaseInsensitive
                         }
                     ]
