@@ -5,39 +5,56 @@ import QtQuick.Layouts 1.12
 import FontAwesomeQml 1.0
 
 ApplicationWindow {
+    id: appWnd
     visible: true
     width: 800
     height: 600
     title: "Font-Awesome viewer"
 
     property bool darkTheme: true
+    readonly property real horizontalMargin: 8
     Material.theme: darkTheme ? Material.Dark : Material.Light
 
     header: ToolBar {
         id: toolbar
+        readonly property color textColor: "white"
         RowLayout {
             anchors.fill: parent
             Label {
-                id: searchLabel
-                Layout.leftMargin: 8
+                Layout.leftMargin: appWnd.horizontalMargin
                 text: qsTr("Search:")
+                color: toolbar.textColor
             }
             TextField {
                 id: searchField
-                Layout.leftMargin: 8
+                Layout.leftMargin: appWnd.horizontalMargin
                 Layout.minimumWidth: 200
                 Layout.bottomMargin: -8
-                Material.accent: searchLabel.color
-                selectionColor: Material.buttonColor
+                color: toolbar.textColor
+                Material.accent: toolbar.textColor
+                selectionColor: toolbar.textColor
+                selectByMouse: true
+                mouseSelectionMode: TextInput.SelectWords
             }
             Item { Layout.fillWidth: true }
             Label {
                 text: qsTr("Theme:")
+                color: toolbar.textColor
             }
             Button {
-                Layout.rightMargin: 8
-                text: darkTheme ? qsTr("Dark") : qsTr("Light")
-                onClicked: { darkTheme = !darkTheme }
+                id: darkLightSwitcher
+                //Layout.rightMargin: appWnd.horizontalMargin
+                width: height
+                font.family: FAQ.fontFamily
+                font.styleName: "Solid"
+                font.pointSize: 20
+                text: FAQ.icon(darkTheme ? FAQ.fa_moon : FAQ.fa_sun, toolbar.textColor)
+                onClicked: {
+                    darkTheme = !darkTheme
+                }
+                background: Rectangle {
+                    color: "transparent"
+                }
             }
         }
     }
@@ -46,9 +63,13 @@ ApplicationWindow {
         id: swipeView
         width: parent.width
         anchors.top: parent.top
+        anchors.topMargin: 8
         anchors.bottom: tabBar.top
+        anchors.bottomMargin: 8
+        anchors.left: parent.left
+        anchors.right: parent.right
         currentIndex: tabBar.currentIndex
-        Material.accent: Material.color(Material.Indigo)
+        Material.accent: toolbar.Material.color(Material.Indigo)
         // Font row component
         Component {
             id: listDelegate
@@ -66,7 +87,7 @@ ApplicationWindow {
                     width: 350
                     selectByMouse: true
                     text: model.name
-                    onFocusChanged:{
+                    onFocusChanged: {
                         if(focus)
                             selectAll()
                     }
@@ -75,7 +96,7 @@ ApplicationWindow {
                     width: 60
                     selectByMouse: true
                     text: model.unicode
-                    onFocusChanged:{
+                    onFocusChanged: {
                         if(focus)
                             selectAll()
                     }
@@ -84,9 +105,11 @@ ApplicationWindow {
         }
         // faRegular tab-content
         ScrollView {
-            id: viewRegular
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ListView {
+                anchors.left: parent.left
+                anchors.leftMargin: appWnd.horizontalMargin
+                clip: true
                 model: FaFilter {
                     ttyName: "ttfRegular"
                     searchStr: searchField.text
@@ -96,9 +119,11 @@ ApplicationWindow {
         }
         // faSolid tab-content
         ScrollView {
-            id: viewSolid
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ListView {
+                anchors.left: parent.left
+                anchors.leftMargin: appWnd.horizontalMargin
+                clip: true
                 model: FaFilter {
                     ttyName: "ttfSolid"
                     searchStr: searchField.text
@@ -108,9 +133,11 @@ ApplicationWindow {
         }
         // faBrands tab-content
         ScrollView {
-            id: viewBrands
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ListView {
+                anchors.left: parent.left
+                anchors.leftMargin: appWnd.horizontalMargin
+                clip: true
                 model: FaFilter {
                     ttyName: "ttfBrand"
                     searchStr: searchField.text
