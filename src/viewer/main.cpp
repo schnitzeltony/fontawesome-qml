@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <fontawesome-qml.h>
+#include <sortfilterproxymodel.h>
 
 int main(int argc, char *argv[])
 {
@@ -8,6 +9,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+    SortFilterProxyModel::registerQml();
     FontAwesomeQml::registerFonts();
     FontAwesomeQml::registerFAQml();
     FontAwesomeQml::registerFAModelQml();
