@@ -23,10 +23,8 @@ find_package(Qt5 "5.12.0" COMPONENTS Gui Qml Quick CONFIG REQUIRED)
 # keep global include path for sub projects
 set(GLOBAL_HEADER_DIR ${PROJECT_SOURCE_DIR}/include)
 
-# temporary hack - hope to get patch building SortFilterProxyModel as shared
-# lib upstream
-add_subdirectory(SortFilterProxyModel)
-include_directories(${PROJECT_SOURCE_DIR}/SortFilterProxyModel)
+# SortFilterProxyModel - I love it...
+find_package(SortFilterProxyModel REQUIRED)
 
 add_subdirectory(src)
 
