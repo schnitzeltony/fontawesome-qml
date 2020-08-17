@@ -32,7 +32,7 @@ ApplicationWindow {
                 Layout.bottomMargin: -8
                 color: toolbar.textColor
                 Material.accent: toolbar.textColor
-                selectionColor: toolbar.textColor
+                selectionColor: "dimgrey"
                 selectByMouse: true
                 mouseSelectionMode: TextInput.SelectWords
             }
