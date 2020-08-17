@@ -48,7 +48,7 @@ ApplicationWindow {
                 font.family: FAQ.fontFamily
                 font.styleName: "Solid"
                 font.pointSize: 20
-                text: FAQ.icon(darkTheme ? FAQ.fa_moon : FAQ.fa_sun, toolbar.textColor)
+                text: darkTheme ? FAQ.icon(FAQ.fa_moon, toolbar.textColor) : FAQ.icon(FAQ.fa_sun, "yellow")
                 onClicked: {
                     darkTheme = !darkTheme
                 }
