@@ -41,6 +41,8 @@ target_compile_options(FontAweSomeQml PRIVATE -Wall)
 # some target magic added by qtcreator
 target_compile_definitions(FontAweSomeQml PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
+target_compile_definitions(FontAweSomeQml PRIVATE $<$<CONFIG:Debug>:QML_DEBUG_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}>)
+
 target_link_libraries(FontAweSomeQml
     PRIVATE
         Qt5::Core
