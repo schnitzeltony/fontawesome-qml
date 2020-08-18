@@ -56,7 +56,6 @@ void FontAwesomeQml::registerFAQml()
 
 void FontAwesomeQml::registerFAModelQml()
 {
-    // Avoid multiple registration
     if(!faModelWasRegistered) {
         qmlRegisterSingletonType(QUrl(getQmlFile("qml/FontawesomeModel.qml")), "FontAwesomeModelQml", 1, 0, "FAMQ");
         faModelWasRegistered = true;
