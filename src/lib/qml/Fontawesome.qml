@@ -4,16 +4,15 @@ import QtQuick 2.0
 Item {
     readonly property string fontFamily: "Font Awesome 5 Free"
 
-    // Tiny helper for colored fonts
-    function icon(symbols, color) {
-        var colorStart="";
-        var colorEnd="";
-        if(color!=null) //implicit conversion is intentional
-        {
-            colorStart="<font color='"+color+"'>";
-            colorEnd="</font>";
+    // Tiny helper for colored glyphs
+    function icon(glyph, color) {
+        var colorStart = "";
+        var colorEnd = "";
+        if(color !== "") {
+            colorStart = "<font color='" + color + "'>";
+            colorEnd = "</font>";
         }
-        return colorStart+symbols+" "+colorEnd;
+        return colorStart + glyph + colorEnd;
     }
 
     // glyphs as properties
