@@ -13,6 +13,7 @@ ApplicationWindow {
 
     property bool darkTheme: true
     readonly property real horizontalMargin: 8
+    property int verticalScrollWidth: 16
     Material.theme: darkTheme ? Material.Dark : Material.Light
 
     header: ToolBar {
@@ -58,21 +59,15 @@ ApplicationWindow {
             }
         }
     }
-    // Swiping tab contents is so cool
-    SwipeView {
-        id: swipeView
-        width: parent.width
-        anchors.top: parent.top
-        anchors.topMargin: 8
-        anchors.bottom: tabBar.top
-        anchors.bottomMargin: 8
-        anchors.left: parent.left
-        anchors.right: parent.right
-        currentIndex: tabBar.currentIndex
-        Material.accent: toolbar.Material.color(Material.Indigo)
-        // Font row component
-        Component {
-            id: listDelegate
+    // Font row component
+    Component {
+        id: listDelegate
+        ItemDelegate {
+            anchors.left: parent.left
+            width: parent.width - appWnd.verticalScrollWidth
+            onClicked: {
+                nameTextField.focus = true
+            }
             Row {
                 spacing: 20
                 height: 40
@@ -84,6 +79,7 @@ ApplicationWindow {
                     text: model.glyph
                 }
                 TextField {
+                    id: nameTextField
                     width: 350
                     selectByMouse: true
                     text: model.name
@@ -103,46 +99,61 @@ ApplicationWindow {
                 }
             }
         }
+    }
+    // Swiping tab contents is so cool
+    SwipeView {
+        id: swipeView
+        anchors.top: parent.top
+        anchors.topMargin: 8
+        anchors.bottom: tabBar.top
+        anchors.bottomMargin: 8
+        anchors.left: parent.left
+        width: parent.width
+        currentIndex: tabBar.currentIndex
+        Material.accent: toolbar.Material.color(Material.Indigo)
         // faRegular tab-content
-        ScrollView {
-            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-            ListView {
-                anchors.left: parent.left
-                anchors.leftMargin: appWnd.horizontalMargin
-                clip: true
-                model: FaFilter {
-                    ttyName: "ttfRegular"
-                    searchStr: searchField.text
-                }
-                delegate: listDelegate
+        ListView {
+            clip: true
+            model: FaFilter {
+                ttyName: "ttfRegular"
+                searchStr: searchField.text
+            }
+            delegate: listDelegate
+            ScrollBar.vertical: ScrollBar {
+                anchors.right: parent.right
+                width: appWnd.verticalScrollWidth
+                orientation: Qt.Vertical
+                policy: ScrollBar.AlwaysOn
             }
         }
         // faSolid tab-content
-        ScrollView {
-            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-            ListView {
-                anchors.left: parent.left
-                anchors.leftMargin: appWnd.horizontalMargin
-                clip: true
-                model: FaFilter {
-                    ttyName: "ttfSolid"
-                    searchStr: searchField.text
-                }
-                delegate: listDelegate
+        ListView {
+            clip: true
+            model: FaFilter {
+                ttyName: "ttfSolid"
+                searchStr: searchField.text
+            }
+            delegate: listDelegate
+            ScrollBar.vertical: ScrollBar {
+                anchors.right: parent.right
+                width: appWnd.verticalScrollWidth
+                orientation: Qt.Vertical
+                policy: ScrollBar.AlwaysOn
             }
         }
         // faBrands tab-content
-        ScrollView {
-            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-            ListView {
-                anchors.left: parent.left
-                anchors.leftMargin: appWnd.horizontalMargin
-                clip: true
-                model: FaFilter {
-                    ttyName: "ttfBrand"
-                    searchStr: searchField.text
-                }
-                delegate: listDelegate
+        ListView {
+            clip: true
+            model: FaFilter {
+                ttyName: "ttfBrand"
+                searchStr: searchField.text
+            }
+            delegate: listDelegate
+            ScrollBar.vertical: ScrollBar {
+                anchors.right: parent.right
+                width: appWnd.verticalScrollWidth
+                orientation: Qt.Vertical
+                policy: ScrollBar.AlwaysOn
             }
         }
     }
