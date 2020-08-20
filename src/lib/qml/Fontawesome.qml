@@ -5,7 +5,7 @@ Item {
     readonly property string fontFamily: "Font Awesome 5 Free"
 
     // Tiny helper for colored glyphs
-    function icon(glyph, color) {
+    function colorize(glyph, color) {
         var colorStart = "";
         var colorEnd = "";
         if(color !== "") {
@@ -13,6 +13,13 @@ Item {
             colorEnd = "</font>";
         }
         return colorStart + glyph + colorEnd;
+    }
+
+    // Tiny helper just appending a space after glyph
+    // just for sake of compatibility - suggested usage:
+    // text: icon(glyph, color) + "your text"
+    function icon(glyph, color) {
+        return colorize(glyph + " ", color)
     }
 
     // glyphs as properties
