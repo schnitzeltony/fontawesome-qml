@@ -17,7 +17,7 @@ target_link_libraries(fontawesome-viewer
         Qt5::Core 
         Qt5::Quick
         FontAweSomeQml::FontAweSomeQml
-        $<TARGET_OBJECTS:SortFilterProxyModel>
+        SortFilterProxyModel::SortFilterProxyModel
 )
 
 # install application
