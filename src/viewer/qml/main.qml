@@ -83,10 +83,12 @@ ApplicationWindow {
                     width: 350
                     selectByMouse: true
                     text: model.name
+                    ContextMenuCopy {}
                     onFocusChanged: {
                         if(focus)
                             selectAll()
                     }
+
                 }
                 TextField {
                     width: 60

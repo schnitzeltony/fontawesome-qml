@@ -2,6 +2,7 @@
     <qresource prefix="/">
         <file>qtquickcontrols2.conf</file>
         <file>qml/main.qml</file>
+        <file>qml/ContextMenuCopy.qml</file>
         <file>qml/FaFilter.qml</file>
     </qresource>
 </RCC>
