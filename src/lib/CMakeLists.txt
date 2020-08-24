@@ -38,10 +38,10 @@ target_include_directories(FontAweSomeQml
 # additional compiler options
 target_compile_options(FontAweSomeQml PRIVATE -Wall)
 
-# some target magic added by qtcreator
-target_compile_definitions(FontAweSomeQml PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-
-target_compile_definitions(FontAweSomeQml PRIVATE $<$<CONFIG:Debug>:QML_DEBUG_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}>)
+# add QT_QML_DEBUG for debug-config
+target_compile_definitions(FontAweSomeQml PRIVATE $<$<CONFIG:Debug>:QT_QML_DEBUG>)
+# add FA_QML_DEBUG_SOURCE_DIR for debug-config
+target_compile_definitions(FontAweSomeQml PRIVATE $<$<CONFIG:Debug>:FA_QML_DEBUG_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}>)
 
 target_link_libraries(FontAweSomeQml
     PRIVATE

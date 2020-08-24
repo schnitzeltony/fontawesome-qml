@@ -39,8 +39,8 @@ void FontAwesomeQml::registerFonts(bool bRegularFont, bool bSolidFont, bool bBra
 
 static QString getQmlFile(QString strFile)
 {
-#if defined(QML_DEBUG_SOURCE_DIR) && defined(LOAD_QML_FROM_SOURCE)
-    return QStringLiteral("file:///" QT_STRINGIFY(QML_DEBUG_SOURCE_DIR) "/") + strFile;
+#if defined(FA_QML_DEBUG_SOURCE_DIR) && defined(FA_LOAD_QML_FROM_SOURCE)
+    return QStringLiteral("file:///" QT_STRINGIFY(FA_QML_DEBUG_SOURCE_DIR) "/") + strFile;
 #else
     return QStringLiteral("qrc:/") + strFile;
 #endif
