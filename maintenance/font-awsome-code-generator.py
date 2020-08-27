@@ -104,7 +104,7 @@ print(' done')
 
 
 # read Fontawesome.qml and write updated version to Fontawesome.qml_
-qml_file = os.path.join(project_path, 'src/lib/qml/Fontawesome.qml')
+qml_file = os.path.join(project_path, 'src/lib/qml/FontAwesomeQml/Fontawesome.qml')
 qml_file_tmp = qml_file + '_'
 in_file = open(qml_file, 'r')
 out_file = open(qml_file_tmp, 'w')
@@ -138,7 +138,7 @@ print(' done')
 
 
 # read FontawesomeModel.qml and write updated version to FontawesomeModel.qml_
-qml_file = os.path.join(project_path, 'src/lib/qml/FontawesomeModel.qml')
+qml_file = os.path.join(project_path, 'src/lib/qml/FontAwesomeModelQml/FontawesomeModel.qml')
 qml_file_tmp = qml_file + '_'
 in_file = open(qml_file, 'r')
 out_file = open(qml_file_tmp, 'w')

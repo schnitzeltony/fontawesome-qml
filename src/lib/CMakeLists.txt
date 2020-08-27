@@ -40,8 +40,14 @@ target_compile_options(FontAweSomeQml PRIVATE -Wall)
 
 # add QT_QML_DEBUG for debug-config
 target_compile_definitions(FontAweSomeQml PRIVATE $<$<CONFIG:Debug>:QT_QML_DEBUG>)
-# add FA_QML_DEBUG_SOURCE_DIR for debug-config
-target_compile_definitions(FontAweSomeQml PRIVATE $<$<CONFIG:Debug>:FA_QML_DEBUG_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}>)
+
+# set debug QML import path to source location:
+set(FA_QML_DEBUG_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/qml CACHE STRING "" FORCE)
+
+# For QQmlEngine find qml in source dir for debug-config & FA_LOAD_QML_FROM_SOURCE is set
+target_compile_definitions(FontAweSomeQml PRIVATE $<$<AND:$<CONFIG:Debug>,$<BOOL:${FA_LOAD_QML_FROM_SOURCE}>>:FA_QML_DEBUG_SOURCE_DIR=${FA_QML_DEBUG_SOURCE_DIR}>)
+# help qt-creator find qml (unfortunately cmake does not support generator expressions on set)
+set(QML_IMPORT_PATH ${FA_QML_DEBUG_SOURCE_DIR} CACHE STRING "" FORCE)
 
 target_link_libraries(FontAweSomeQml
     PRIVATE

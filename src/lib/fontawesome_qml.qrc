@@ -3,8 +3,10 @@
         <file>Font-Awesome/webfonts/fa-brands-400.ttf</file>
         <file>Font-Awesome/webfonts/fa-regular-400.ttf</file>
         <file>Font-Awesome/webfonts/fa-solid-900.ttf</file>
-        <file>qml/Fontawesome.qml</file>
-        <file>qml/FontawesomeModel.qml</file>
+        <file>qml/FontAwesomeQml/qmldir</file>
+        <file>qml/FontAwesomeQml/Fontawesome.qml</file>
+        <file>qml/FontAwesomeModelQml/qmldir</file>
+        <file>qml/FontAwesomeModelQml/FontawesomeModel.qml</file>
         <file>js/fa.js</file>
     </qresource>
 </RCC>

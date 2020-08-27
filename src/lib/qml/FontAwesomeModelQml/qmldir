@@ -1,0 +1,2 @@
+module FontAwesomeModelQml
+singleton FAMQ 1.0 FontawesomeModel.qml

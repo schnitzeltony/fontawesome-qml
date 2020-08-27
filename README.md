@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     ...
     FontAwesomeQml::registerFonts(false, true, false);
-    FontAwesomeQml::registerFAQml();
+    FontAwesomeQml::registerFAQml(&engine);
     ...
     engine.load(url);
     return app.exec();

@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.1)
 
 option(FA_LOAD_QML_FROM_SOURCE "Ensure loading QML files for proper debugging" OFF)
-add_compile_definitions($<$<BOOL:${FA_LOAD_QML_FROM_SOURCE}>:FA_LOAD_QML_FROM_SOURCE>)
 
 # project definition / version
 project(fontawesome-qml LANGUAGES CXX)

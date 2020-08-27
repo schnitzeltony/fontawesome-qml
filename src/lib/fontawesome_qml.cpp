@@ -37,27 +37,36 @@ void FontAwesomeQml::registerFonts(bool bRegularFont, bool bSolidFont, bool bBra
     }
 }
 
-static QString getQmlFile(QString strFile)
-{
-#if defined(FA_QML_DEBUG_SOURCE_DIR) && defined(FA_LOAD_QML_FROM_SOURCE)
-    return QStringLiteral("file:///" QT_STRINGIFY(FA_QML_DEBUG_SOURCE_DIR) "/") + strFile;
-#else
-    return QStringLiteral("qrc:/") + strFile;
-#endif
-}
-
-void FontAwesomeQml::registerFAQml()
+void FontAwesomeQml::registerFAQml(QQmlEngine* engine)
 {
     if(!faWasRegistered) {
-        qmlRegisterSingletonType(QUrl(getQmlFile("qml/Fontawesome.qml")), "FontAwesomeQml", 1, 0, "FAQ");
+#if defined(FA_QML_DEBUG_SOURCE_DIR)
+        QStringList importPaths = engine->importPathList();
+        QString importPath = QStringLiteral(QT_STRINGIFY(FA_QML_DEBUG_SOURCE_DIR));
+        if(!importPaths.contains(importPath)) {
+            engine->addImportPath(importPath);
+        }
+#else
+        Q_UNUSED(engine)
+        qmlRegisterSingletonType(QUrl("qrc:/qml/FontAwesomeQml/Fontawesome.qml"), "FontAwesomeQml", 1, 0, "FAQ");
+#endif
         faWasRegistered = true;
     }
 }
 
-void FontAwesomeQml::registerFAModelQml()
+void FontAwesomeQml::registerFAModelQml(QQmlEngine* engine)
 {
     if(!faModelWasRegistered) {
-        qmlRegisterSingletonType(QUrl(getQmlFile("qml/FontawesomeModel.qml")), "FontAwesomeModelQml", 1, 0, "FAMQ");
+#if defined(FA_QML_DEBUG_SOURCE_DIR)
+        QStringList importPaths = engine->importPathList();
+        QString importPath = QStringLiteral(QT_STRINGIFY(FA_QML_DEBUG_SOURCE_DIR));
+        if(!importPaths.contains(importPath)) {
+            engine->addImportPath(importPath);
+        }
+#else
+        Q_UNUSED(engine)
+        qmlRegisterSingletonType(QUrl("qrc:/qml/FontAwesomeModelQml/FontawesomeModel.qml"), "FontAwesomeModelQml", 1, 0, "FAMQ");
+#endif
         faModelWasRegistered = true;
     }
 }

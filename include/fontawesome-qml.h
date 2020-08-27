@@ -1,13 +1,10 @@
 ﻿#ifndef FONTAWESOME_QML_H
 #define FONTAWESOME_QML_H
-
 #include <QObject>
-#include <QColor>
 #include "fontawesomeqml_export.h"
 
-// forwards
+// forward
 class QQmlEngine;
-class QJSEngine;
 
 class FONTAWESOMEQML_EXPORT FontAwesomeQml : public QObject
 {
@@ -23,13 +20,15 @@ public:
     /**
      * @brief registerFAQml Register Font-Awesome QML component (add 'import FontAwesomeQml 1.0' in your QML
      * to use it
+     * @param engine the engine to register for - only used for debug
      */
-    static void registerFAQml();
+    static void registerFAQml(QQmlEngine *engine);
     /**
-     * @brief registerFAModelQml Register model wrapper supplying modelRegular / modelSolid / modelBrands
+     * @brief registerFAModelQml Register model wrapper supplying faModel
      * check out viewer application to see it's usage
+     * @param engine the engine to register for - only used for debug
      */
-    static void registerFAModelQml();
+    static void registerFAModelQml(QQmlEngine* engine);
 private:
     static bool faWasRegistered;
     static bool faModelWasRegistered;
