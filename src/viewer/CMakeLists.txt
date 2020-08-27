@@ -1,7 +1,7 @@
 # our font viewer application
 add_executable(fontawesome-viewer
     main.cpp
-    qml.qrc
+    fontawesome-qml-viewer.qrc
 )
 
 # where to find headers
