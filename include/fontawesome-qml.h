@@ -29,13 +29,6 @@ public:
      * @param engine the engine to register for - only used for debug
      */
     static void registerFAModelQml(QQmlEngine* engine);
-private:
-    static bool faWasRegistered;
-    static bool faModelWasRegistered;
-
-    static bool bRegularFontWasRegistered;
-    static bool bSolidFontWasRegistered;
-    static bool bBrandsFontWasRegistered;
 };
 
 #endif // FONTAWESOME_QML_H

@@ -2,12 +2,14 @@
 #include <QFontDatabase>
 #include <QQmlEngine>
 
-bool FontAwesomeQml::faModelWasRegistered = false;
-bool FontAwesomeQml::faWasRegistered = false;
+#if !defined(FA_QML_DEBUG_SOURCE_DIR)
+static bool faWasRegistered;
+static bool faModelWasRegistered;
+#endif
 
-bool FontAwesomeQml::bRegularFontWasRegistered = false;
-bool FontAwesomeQml::bSolidFontWasRegistered = false;
-bool FontAwesomeQml::bBrandsFontWasRegistered = false;
+static bool bRegularFontWasRegistered;
+static bool bSolidFontWasRegistered;
+static bool bBrandsFontWasRegistered;
 
 void FontAwesomeQml::registerFonts(bool bRegularFont, bool bSolidFont, bool bBrandFont)
 {
@@ -39,34 +41,34 @@ void FontAwesomeQml::registerFonts(bool bRegularFont, bool bSolidFont, bool bBra
 
 void FontAwesomeQml::registerFAQml(QQmlEngine* engine)
 {
-    if(!faWasRegistered) {
 #if defined(FA_QML_DEBUG_SOURCE_DIR)
-        QStringList importPaths = engine->importPathList();
-        QString importPath = QStringLiteral(QT_STRINGIFY(FA_QML_DEBUG_SOURCE_DIR));
-        if(!importPaths.contains(importPath)) {
-            engine->addImportPath(importPath);
-        }
+    QStringList importPaths = engine->importPathList();
+    QString importPath = QStringLiteral(QT_STRINGIFY(FA_QML_DEBUG_SOURCE_DIR));
+    if(!importPaths.contains(importPath)) {
+        engine->addImportPath(importPath);
+    }
 #else
+    if(!faWasRegistered) {
         Q_UNUSED(engine)
         qmlRegisterSingletonType(QUrl("qrc:/qml/FontAwesomeQml/Fontawesome.qml"), "FontAwesomeQml", 1, 0, "FAQ");
-#endif
         faWasRegistered = true;
     }
+#endif
 }
 
 void FontAwesomeQml::registerFAModelQml(QQmlEngine* engine)
 {
-    if(!faModelWasRegistered) {
 #if defined(FA_QML_DEBUG_SOURCE_DIR)
-        QStringList importPaths = engine->importPathList();
-        QString importPath = QStringLiteral(QT_STRINGIFY(FA_QML_DEBUG_SOURCE_DIR));
-        if(!importPaths.contains(importPath)) {
-            engine->addImportPath(importPath);
-        }
+    QStringList importPaths = engine->importPathList();
+    QString importPath = QStringLiteral(QT_STRINGIFY(FA_QML_DEBUG_SOURCE_DIR));
+    if(!importPaths.contains(importPath)) {
+        engine->addImportPath(importPath);
+    }
 #else
+    if(!faModelWasRegistered) {
         Q_UNUSED(engine)
         qmlRegisterSingletonType(QUrl("qrc:/qml/FontAwesomeModelQml/FontawesomeModel.qml"), "FontAwesomeModelQml", 1, 0, "FAMQ");
-#endif
         faModelWasRegistered = true;
     }
+#endif
 }
