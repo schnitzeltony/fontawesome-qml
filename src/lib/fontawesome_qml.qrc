@@ -7,6 +7,5 @@
         <file>qml/FontAwesomeQml/Fontawesome.qml</file>
         <file>qml/FontAwesomeModelQml/qmldir</file>
         <file>qml/FontAwesomeModelQml/FontawesomeModel.qml</file>
-        <file>js/fa.js</file>
     </qresource>
 </RCC>
