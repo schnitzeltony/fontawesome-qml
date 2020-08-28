@@ -7,6 +7,8 @@ add_library(FontAweSomeQml
         # for moc & qtcreator to have it in-tree
         ${GLOBAL_HEADER}
         fontawesome_qml.cpp
+        fontawesomehash.cpp
+        fontawesomehash.h
         fontawesome_qml.qrc
 )
 add_library(FontAweSomeQml::FontAweSomeQml ALIAS FontAweSomeQml)

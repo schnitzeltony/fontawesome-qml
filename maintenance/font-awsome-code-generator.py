@@ -63,6 +63,41 @@ for svg in svg_files:
                 bisect.insort(glyphs, t)
     in_file.close()
 
+# read fontawesomehash.cpp and write updated version to fontawesomehash.cpp_
+cpp_file = os.path.join(project_path, 'src/lib/fontawesomehash.cpp')
+cpp_file_tmp = cpp_file + '_'
+in_file = open(cpp_file, 'r')
+out_file = open(cpp_file_tmp, 'w')
+
+in_auto=False
+glyph_names_added=[]
+fa_var_prefix = 'fa_'
+print('Upgrading %s...' % cpp_file, end='')
+for line in in_file.readlines():
+    if '// START AUTO-GENERATED' in line:
+        in_auto=True
+        out_file.write(line)
+        for g in glyphs:
+            name = g[0]
+            val = g[1]
+            # avoid double entries
+            if not name in glyph_names_added:
+                glyph_names_added.append(name)
+                out_file.write('        faHash["' + fa_var_prefix + name + '"]= "\\u' + val + '";\n')
+    if '// END AUTO-GENERATED' in line:
+        in_auto=False
+    if not in_auto:
+        out_file.write(line)
+
+in_file.close()
+out_file.close()
+
+# copy / remove fontawesomehash.cpp_
+shutil.copyfile(cpp_file_tmp, cpp_file)
+os.remove(cpp_file_tmp)
+print(' done')
+
+
 # read Fontawesome.qml and write updated version to Fontawesome.qml_
 qml_file = os.path.join(project_path, 'src/lib/qml/FontAwesomeQml/Fontawesome.qml')
 qml_file_tmp = qml_file + '_'

@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.12
 import FontAwesomeQml 1.0
+import FontAwesomeHash 1.0
 
 ApplicationWindow {
     id: appWnd
@@ -49,7 +50,8 @@ ApplicationWindow {
                 font.family: FAQ.fontFamily
                 font.styleName: "Solid"
                 font.pointSize: 20
-                text: darkTheme ? FAQ.colorize(FAQ.fa_moon, toolbar.textColor) : FAQ.colorize(FAQ.fa_sun, "yellow")
+                // This line might look odd but contains (all?) test cases
+                text: darkTheme ? FAQ.colorize(FAQH.strToGlyph("fa_moon"), toolbar.textColor) : FAQ.colorize(FAQ.fa_sun, "yellow")
                 onClicked: {
                     darkTheme = !darkTheme
                 }

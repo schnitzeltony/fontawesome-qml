@@ -1,4 +1,5 @@
 #include <fontawesome-qml.h>
+#include "fontawesomehash.h"
 #include <QFontDatabase>
 #include <QQmlEngine>
 
@@ -41,6 +42,9 @@ void FontAwesomeQml::registerFonts(bool bRegularFont, bool bSolidFont, bool bBra
 
 void FontAwesomeQml::registerFAQml(QQmlEngine* engine)
 {
+    // we have already many register functions so auto.register hash
+    // if not used it is of almost zero cost
+    FontAwesomeHash::registerQML();
 #if defined(FA_QML_DEBUG_SOURCE_DIR)
     QStringList importPaths = engine->importPathList();
     QString importPath = QStringLiteral(QT_STRINGIFY(FA_QML_DEBUG_SOURCE_DIR));
