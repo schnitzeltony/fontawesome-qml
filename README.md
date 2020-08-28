@@ -68,6 +68,28 @@ import FontAwesomeQml 1.0
     }
 ...
 ```
+4. In QML / ListElement we cannot use```FAQ.<glyph>```
+>ListElement: cannot use script for property value
+
+see [Example](src/examples/FontAwesomeHashExample/main.qml):
+```QML
+...
+import FontAwesomeQml 1.0
+import FontAwesomeHash 1.0
+...
+ListView {
+    ListModel {
+        ListElement {glyph: "fa_moon"; gcolor: "black"; gtext: "Sleep well"}
+        ListElement {glyph: "fa_sun"; gcolor: "yellow"; gtext: "Most favorite"}
+        ...
+    }
+    delegate: Text {
+        font.family: FAQ.fontFamily
+        text: FAQ.icon(FAQH.strToGlyph(glyph), gcolor) + gtext
+   }
+}
+...
+```
 
 ----------------------------------------------
 For dependencies check [CMakeLists.txt](CMakeLists.txt) / ```find_package```.
