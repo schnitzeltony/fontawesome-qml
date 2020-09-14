@@ -13,7 +13,7 @@ SortFilterProxyModel {
         },
         RegExpFilter {
             roleName: "name"
-            pattern: "^fa_.*" + searchStr
+            pattern: searchStr.startsWith("fa_") ? "^" + searchStr + ".*" : "^fa_.*" + searchStr
             caseSensitivity: Qt.CaseInsensitive
         }
     ]
