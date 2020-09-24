@@ -3,11 +3,12 @@
 
 #include <QObject>
 #include <QHash>
+#include <fontawesomeqml_export.h>
 
 class QQmlEngine;
 class QJSEngine;
 
-class FontAwesomeHash : public QObject
+class FONTAWESOMEQML_EXPORT FontAwesomeHash : public QObject
 {
     Q_OBJECT
 public:
