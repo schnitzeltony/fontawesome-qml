@@ -21,7 +21,6 @@ include(GenerateExportHeader)
 generate_export_header(FontAweSomeQml)
 
 install(FILES
-   "${CMAKE_CURRENT_BINARY_DIR}/FontAweSomeQmlConfig.cmake"
     ${CMAKE_CURRENT_BINARY_DIR}/fontawesomeqml_export.h
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/fontawesome-qml
 )
@@ -61,8 +60,9 @@ target_link_libraries(FontAweSomeQml
 )
 
 # install public header
-install(
-    FILES ${GLOBAL_HEADER}
+install(FILES
+    ${GLOBAL_HEADER}
+    fontawesomehash.h
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/fontawesome-qml
 )
 
