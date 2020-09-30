@@ -85,6 +85,7 @@ ApplicationWindow {
                     width: 350
                     selectByMouse: true
                     text: model.name
+                    readOnly: true
                     onFocusChanged: {
                         if(focus)
                             selectAll()
@@ -94,6 +95,7 @@ ApplicationWindow {
                     width: 60
                     selectByMouse: true
                     text: model.unicode
+                    readOnly: true
                     onFocusChanged: {
                         if(focus)
                             selectAll()
