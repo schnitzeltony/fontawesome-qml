@@ -20,7 +20,6 @@ Item {
         ListElement { name: "fa_address_card"; glyph: "\uf2bb"; unicode: "\\uf2bb"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_adjust"; glyph: "\uf042"; unicode: "\\uf042"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_adn"; glyph: "\uf170"; unicode: "\\uf170"; style: "Regular"; ttf: "ttfBrand" }
-        ListElement { name: "fa_adobe"; glyph: "\uf778"; unicode: "\\uf778"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_adversal"; glyph: "\uf36a"; unicode: "\\uf36a"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_affiliatetheme"; glyph: "\uf36b"; unicode: "\\uf36b"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_air_freshener"; glyph: "\uf5d0"; unicode: "\\uf5d0"; style: "Solid"; ttf: "ttfSolid" }
@@ -311,6 +310,7 @@ Item {
         ListElement { name: "fa_cloud_sun"; glyph: "\uf6c4"; unicode: "\\uf6c4"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_cloud_sun_rain"; glyph: "\uf743"; unicode: "\\uf743"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_cloud_upload_alt"; glyph: "\uf382"; unicode: "\\uf382"; style: "Solid"; ttf: "ttfSolid" }
+        ListElement { name: "fa_cloudflare"; glyph: "\ue07d"; unicode: "\\ue07d"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_cloudscale"; glyph: "\uf383"; unicode: "\\uf383"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_cloudsmith"; glyph: "\uf384"; unicode: "\\uf384"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_cloudversify"; glyph: "\uf385"; unicode: "\\uf385"; style: "Regular"; ttf: "ttfBrand" }
@@ -689,6 +689,7 @@ Item {
         ListElement { name: "fa_grip_vertical"; glyph: "\uf58e"; unicode: "\\uf58e"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_gripfire"; glyph: "\uf3ac"; unicode: "\\uf3ac"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_grunt"; glyph: "\uf3ad"; unicode: "\\uf3ad"; style: "Regular"; ttf: "ttfBrand" }
+        ListElement { name: "fa_guilded"; glyph: "\ue07e"; unicode: "\\ue07e"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_guitar"; glyph: "\uf7a6"; unicode: "\\uf7a6"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_gulp"; glyph: "\uf3ae"; unicode: "\\uf3ae"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_h_square"; glyph: "\uf0fd"; unicode: "\\uf0fd"; style: "Solid"; ttf: "ttfSolid" }
@@ -761,6 +762,7 @@ Item {
         ListElement { name: "fa_hips"; glyph: "\uf452"; unicode: "\\uf452"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_hire_a_helper"; glyph: "\uf3b0"; unicode: "\\uf3b0"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_history"; glyph: "\uf1da"; unicode: "\\uf1da"; style: "Solid"; ttf: "ttfSolid" }
+        ListElement { name: "fa_hive"; glyph: "\ue07f"; unicode: "\\ue07f"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_hockey_puck"; glyph: "\uf453"; unicode: "\\uf453"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_holly_berry"; glyph: "\uf7aa"; unicode: "\\uf7aa"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_home"; glyph: "\uf015"; unicode: "\\uf015"; style: "Solid"; ttf: "ttfSolid" }
@@ -810,8 +812,10 @@ Item {
         ListElement { name: "fa_infinity"; glyph: "\uf534"; unicode: "\\uf534"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_info"; glyph: "\uf129"; unicode: "\\uf129"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_info_circle"; glyph: "\uf05a"; unicode: "\\uf05a"; style: "Solid"; ttf: "ttfSolid" }
+        ListElement { name: "fa_innosoft"; glyph: "\ue080"; unicode: "\\ue080"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_instagram"; glyph: "\uf16d"; unicode: "\\uf16d"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_instagram_square"; glyph: "\ue055"; unicode: "\\ue055"; style: "Regular"; ttf: "ttfBrand" }
+        ListElement { name: "fa_instalod"; glyph: "\ue081"; unicode: "\\ue081"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_intercom"; glyph: "\uf7af"; unicode: "\\uf7af"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_internet_explorer"; glyph: "\uf26b"; unicode: "\\uf26b"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_invision"; glyph: "\uf7b0"; unicode: "\\uf7b0"; style: "Regular"; ttf: "ttfBrand" }
@@ -1007,6 +1011,7 @@ Item {
         ListElement { name: "fa_object_group"; glyph: "\uf247"; unicode: "\\uf247"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_object_ungroup"; glyph: "\uf248"; unicode: "\\uf248"; style: "Regular"; ttf: "ttfRegular" }
         ListElement { name: "fa_object_ungroup"; glyph: "\uf248"; unicode: "\\uf248"; style: "Solid"; ttf: "ttfSolid" }
+        ListElement { name: "fa_octopus_deploy"; glyph: "\ue082"; unicode: "\\ue082"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_odnoklassniki"; glyph: "\uf263"; unicode: "\\uf263"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_odnoklassniki_square"; glyph: "\uf264"; unicode: "\\uf264"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_oil_can"; glyph: "\uf613"; unicode: "\\uf613"; style: "Solid"; ttf: "ttfSolid" }
@@ -1055,6 +1060,7 @@ Item {
         ListElement { name: "fa_people_arrows"; glyph: "\ue068"; unicode: "\\ue068"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_people_carry"; glyph: "\uf4ce"; unicode: "\\uf4ce"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_pepper_hot"; glyph: "\uf816"; unicode: "\\uf816"; style: "Solid"; ttf: "ttfSolid" }
+        ListElement { name: "fa_perbyte"; glyph: "\ue083"; unicode: "\\ue083"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_percent"; glyph: "\uf295"; unicode: "\\uf295"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_percentage"; glyph: "\uf541"; unicode: "\\uf541"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_periscope"; glyph: "\uf3da"; unicode: "\\uf3da"; style: "Regular"; ttf: "ttfBrand" }
@@ -1447,7 +1453,6 @@ Item {
         ListElement { name: "fa_trash_restore_alt"; glyph: "\uf82a"; unicode: "\\uf82a"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_tree"; glyph: "\uf1bb"; unicode: "\\uf1bb"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_trello"; glyph: "\uf181"; unicode: "\\uf181"; style: "Regular"; ttf: "ttfBrand" }
-        ListElement { name: "fa_tripadvisor"; glyph: "\uf262"; unicode: "\\uf262"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_trophy"; glyph: "\uf091"; unicode: "\\uf091"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_truck"; glyph: "\uf0d1"; unicode: "\\uf0d1"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_truck_loading"; glyph: "\uf4de"; unicode: "\\uf4de"; style: "Solid"; ttf: "ttfSolid" }
@@ -1469,6 +1474,7 @@ Item {
         ListElement { name: "fa_umbraco"; glyph: "\uf8e8"; unicode: "\\uf8e8"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_umbrella"; glyph: "\uf0e9"; unicode: "\\uf0e9"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_umbrella_beach"; glyph: "\uf5ca"; unicode: "\\uf5ca"; style: "Solid"; ttf: "ttfSolid" }
+        ListElement { name: "fa_uncharted"; glyph: "\ue084"; unicode: "\\ue084"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_underline"; glyph: "\uf0cd"; unicode: "\\uf0cd"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_undo"; glyph: "\uf0e2"; unicode: "\\uf0e2"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_undo_alt"; glyph: "\uf2ea"; unicode: "\\uf2ea"; style: "Solid"; ttf: "ttfSolid" }
@@ -1522,6 +1528,8 @@ Item {
         ListElement { name: "fa_venus"; glyph: "\uf221"; unicode: "\\uf221"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_venus_double"; glyph: "\uf226"; unicode: "\\uf226"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_venus_mars"; glyph: "\uf228"; unicode: "\\uf228"; style: "Solid"; ttf: "ttfSolid" }
+        ListElement { name: "fa_vest"; glyph: "\ue085"; unicode: "\\ue085"; style: "Solid"; ttf: "ttfSolid" }
+        ListElement { name: "fa_vest_patches"; glyph: "\ue086"; unicode: "\\ue086"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_viacoin"; glyph: "\uf237"; unicode: "\\uf237"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_viadeo"; glyph: "\uf2a9"; unicode: "\\uf2a9"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_viadeo_square"; glyph: "\uf2aa"; unicode: "\\uf2aa"; style: "Regular"; ttf: "ttfBrand" }
@@ -1552,6 +1560,7 @@ Item {
         ListElement { name: "fa_walking"; glyph: "\uf554"; unicode: "\\uf554"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_wallet"; glyph: "\uf555"; unicode: "\\uf555"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_warehouse"; glyph: "\uf494"; unicode: "\\uf494"; style: "Solid"; ttf: "ttfSolid" }
+        ListElement { name: "fa_watchman_monitoring"; glyph: "\ue087"; unicode: "\\ue087"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_water"; glyph: "\uf773"; unicode: "\\uf773"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_wave_square"; glyph: "\uf83e"; unicode: "\\uf83e"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_waze"; glyph: "\uf83f"; unicode: "\\uf83f"; style: "Regular"; ttf: "ttfBrand" }
@@ -1581,6 +1590,7 @@ Item {
         ListElement { name: "fa_wine_glass_alt"; glyph: "\uf5ce"; unicode: "\\uf5ce"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_wix"; glyph: "\uf5cf"; unicode: "\\uf5cf"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_wizards_of_the_coast"; glyph: "\uf730"; unicode: "\\uf730"; style: "Regular"; ttf: "ttfBrand" }
+        ListElement { name: "fa_wodu"; glyph: "\ue088"; unicode: "\\ue088"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_wolf_pack_battalion"; glyph: "\uf514"; unicode: "\\uf514"; style: "Regular"; ttf: "ttfBrand" }
         ListElement { name: "fa_won_sign"; glyph: "\uf159"; unicode: "\\uf159"; style: "Solid"; ttf: "ttfSolid" }
         ListElement { name: "fa_wordpress"; glyph: "\uf19a"; unicode: "\\uf19a"; style: "Regular"; ttf: "ttfBrand" }

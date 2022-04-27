@@ -36,7 +36,6 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_address_card"]= "\uf2bb";
         faHash["fa_adjust"]= "\uf042";
         faHash["fa_adn"]= "\uf170";
-        faHash["fa_adobe"]= "\uf778";
         faHash["fa_adversal"]= "\uf36a";
         faHash["fa_affiliatetheme"]= "\uf36b";
         faHash["fa_air_freshener"]= "\uf5d0";
@@ -300,6 +299,7 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_cloud_sun"]= "\uf6c4";
         faHash["fa_cloud_sun_rain"]= "\uf743";
         faHash["fa_cloud_upload_alt"]= "\uf382";
+        faHash["fa_cloudflare"]= "\ue07d";
         faHash["fa_cloudscale"]= "\uf383";
         faHash["fa_cloudsmith"]= "\uf384";
         faHash["fa_cloudversify"]= "\uf385";
@@ -630,6 +630,7 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_grip_vertical"]= "\uf58e";
         faHash["fa_gripfire"]= "\uf3ac";
         faHash["fa_grunt"]= "\uf3ad";
+        faHash["fa_guilded"]= "\ue07e";
         faHash["fa_guitar"]= "\uf7a6";
         faHash["fa_gulp"]= "\uf3ae";
         faHash["fa_h_square"]= "\uf0fd";
@@ -688,6 +689,7 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_hips"]= "\uf452";
         faHash["fa_hire_a_helper"]= "\uf3b0";
         faHash["fa_history"]= "\uf1da";
+        faHash["fa_hive"]= "\ue07f";
         faHash["fa_hockey_puck"]= "\uf453";
         faHash["fa_holly_berry"]= "\uf7aa";
         faHash["fa_home"]= "\uf015";
@@ -731,8 +733,10 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_infinity"]= "\uf534";
         faHash["fa_info"]= "\uf129";
         faHash["fa_info_circle"]= "\uf05a";
+        faHash["fa_innosoft"]= "\ue080";
         faHash["fa_instagram"]= "\uf16d";
         faHash["fa_instagram_square"]= "\ue055";
+        faHash["fa_instalod"]= "\ue081";
         faHash["fa_intercom"]= "\uf7af";
         faHash["fa_internet_explorer"]= "\uf26b";
         faHash["fa_invision"]= "\uf7b0";
@@ -906,6 +910,7 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_nutritionix"]= "\uf3d6";
         faHash["fa_object_group"]= "\uf247";
         faHash["fa_object_ungroup"]= "\uf248";
+        faHash["fa_octopus_deploy"]= "\ue082";
         faHash["fa_odnoklassniki"]= "\uf263";
         faHash["fa_odnoklassniki_square"]= "\uf264";
         faHash["fa_oil_can"]= "\uf613";
@@ -952,6 +957,7 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_people_arrows"]= "\ue068";
         faHash["fa_people_carry"]= "\uf4ce";
         faHash["fa_pepper_hot"]= "\uf816";
+        faHash["fa_perbyte"]= "\ue083";
         faHash["fa_percent"]= "\uf295";
         faHash["fa_percentage"]= "\uf541";
         faHash["fa_periscope"]= "\uf3da";
@@ -1320,7 +1326,6 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_trash_restore_alt"]= "\uf82a";
         faHash["fa_tree"]= "\uf1bb";
         faHash["fa_trello"]= "\uf181";
-        faHash["fa_tripadvisor"]= "\uf262";
         faHash["fa_trophy"]= "\uf091";
         faHash["fa_truck"]= "\uf0d1";
         faHash["fa_truck_loading"]= "\uf4de";
@@ -1342,6 +1347,7 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_umbraco"]= "\uf8e8";
         faHash["fa_umbrella"]= "\uf0e9";
         faHash["fa_umbrella_beach"]= "\uf5ca";
+        faHash["fa_uncharted"]= "\ue084";
         faHash["fa_underline"]= "\uf0cd";
         faHash["fa_undo"]= "\uf0e2";
         faHash["fa_undo_alt"]= "\uf2ea";
@@ -1393,6 +1399,8 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_venus"]= "\uf221";
         faHash["fa_venus_double"]= "\uf226";
         faHash["fa_venus_mars"]= "\uf228";
+        faHash["fa_vest"]= "\ue085";
+        faHash["fa_vest_patches"]= "\ue086";
         faHash["fa_viacoin"]= "\uf237";
         faHash["fa_viadeo"]= "\uf2a9";
         faHash["fa_viadeo_square"]= "\uf2aa";
@@ -1423,6 +1431,7 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_walking"]= "\uf554";
         faHash["fa_wallet"]= "\uf555";
         faHash["fa_warehouse"]= "\uf494";
+        faHash["fa_watchman_monitoring"]= "\ue087";
         faHash["fa_water"]= "\uf773";
         faHash["fa_wave_square"]= "\uf83e";
         faHash["fa_waze"]= "\uf83f";
@@ -1448,6 +1457,7 @@ QString FontAwesomeHash::strToGlyph(QString strGlypName)
         faHash["fa_wine_glass_alt"]= "\uf5ce";
         faHash["fa_wix"]= "\uf5cf";
         faHash["fa_wizards_of_the_coast"]= "\uf730";
+        faHash["fa_wodu"]= "\ue088";
         faHash["fa_wolf_pack_battalion"]= "\uf514";
         faHash["fa_won_sign"]= "\uf159";
         faHash["fa_wordpress"]= "\uf19a";
