@@ -13,8 +13,6 @@ set(PROJECT_VERSION "${FONTAWESOME_QML_VERSION_MAJOR}.${FONTAWESOME_QML_VERSION_
 # cmake macros
 include(FeatureSummary)
 include(GNUInstallDirs)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # For Qt's sake
 set(CMAKE_AUTOMOC ON)
