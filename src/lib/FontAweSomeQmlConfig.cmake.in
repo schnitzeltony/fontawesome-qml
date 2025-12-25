@@ -1,13 +1,9 @@
 include(CMakeFindDependencyMacro)
 
-# Capturing values from configure (optional)
-#set(my-config-var @my-config-var@)
+if("${QT_MAJOR_VER}" STREQUAL "6")
+    find_dependency(Qt6 REQUIRED COMPONENTS Core Qml)
+else()
+    find_dependency(Qt5 REQUIRED COMPONENTS Core Qml)
+endif()
 
-# dependencies
-find_dependency(Qt5 REQUIRED COMPONENTS Core Qml)
-
-
-
-# targets file
 include("${CMAKE_CURRENT_LIST_DIR}/FontAweSomeQmlTargets.cmake")
-

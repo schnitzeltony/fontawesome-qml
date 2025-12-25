@@ -18,8 +18,10 @@ include(GNUInstallDirs)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-# Qt5 libs
-find_package(Qt5 "5.12.0" COMPONENTS Gui Qml Quick CONFIG REQUIRED)
+set(QT_MAJOR_VER "5" CACHE STRING "Qt major version")
+set(QTX "Qt${QT_MAJOR_VER}")
+
+find_package(${QTX} COMPONENTS Gui Qml Quick CONFIG REQUIRED)
 
 # keep global include path for sub projects
 set(GLOBAL_HEADER_DIR ${PROJECT_SOURCE_DIR}/include)

@@ -14,8 +14,8 @@ target_include_directories(fontawesome-viewer
 
 target_link_libraries(fontawesome-viewer
     PRIVATE
-        Qt5::Core 
-        Qt5::Quick
+        ${QTX}::Core
+        ${QTX}::Quick
         FontAweSomeQml::FontAweSomeQml
         SortFilterProxyModel::SortFilterProxyModel
 )

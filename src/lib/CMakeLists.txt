@@ -52,9 +52,9 @@ set(QML_IMPORT_PATH ${FA_QML_DEBUG_SOURCE_DIR} CACHE STRING "" FORCE)
 
 target_link_libraries(FontAweSomeQml
     PRIVATE
-        Qt5::Core
-        Qt5::Gui
-        Qt5::Qml
+        ${QTX}::Core
+        ${QTX}::Gui
+        ${QTX}::Qml
         # ask linker to help us finding unresolved symbols
         "-Wl,--no-undefined"
 )
