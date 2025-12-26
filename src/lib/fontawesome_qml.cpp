@@ -14,6 +14,7 @@ static bool bBrandsFontWasRegistered;
 
 void FontAwesomeQml::registerFonts(bool bRegularFont, bool bSolidFont, bool bBrandFont)
 {
+    Q_INIT_RESOURCE(fontawesome_qml);
     if(bRegularFont && !bRegularFontWasRegistered) {
         if (QFontDatabase::addApplicationFont(":/Font-Awesome/webfonts/fa-regular-400.ttf") == -1) {
             qWarning("Failed to add fa-regular-400.ttf");
